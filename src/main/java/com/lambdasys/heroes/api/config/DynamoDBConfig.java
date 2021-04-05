@@ -12,17 +12,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix ="amazon")
+@ConfigurationProperties(prefix ="amazon.dynamo")
 @EnableDynamoDBRepositories
 public class DynamoDBConfig {
 
-    @Value("${dynamo.endpoint}")
+    @Value("${endpoint}")
     private String endpoint;
 
-    @Value("${aws.accessKey}")
+    @Value("${amazon_aws_access_key}")
     private String accessKey;
 
-    @Value("${aws.secretKey}")
+    @Value("${amazon_aws_secret_key}")
     private String secretKey;
 
     @Bean
