@@ -37,5 +37,5 @@ public class HeroesService {
        this.repository.delete(heroes);
        return Mono.just(true);
    }
-   
+
 }
