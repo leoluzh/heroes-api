@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lambdasys</groupId>
-	<artifactId>heroes-api</artifactId>
+	<artifactId>mangas-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>heroes-api</name>
+	<name>mangas-api</name>
 	<description>API para gerenciamente de Super Heroes</description>
 	<properties>
 		<java.version>16</java.version>
