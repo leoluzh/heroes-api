@@ -1,35 +1,33 @@
-package com.lambdasys.heroes.api;
+package com.lambdasys.mangas.api;
 
-import com.lambdasys.heroes.api.constants.HeroesConstants;
-import com.lambdasys.heroes.api.repository.HeroesRepository;
+import com.lambdasys.mangas.api.constants.MangasConstants;
+import com.lambdasys.mangas.api.repository.MangasRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
-import org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 @ExtendWith(SpringExtension.class)
 @DirtiesContext
 @AutoConfigureWebTestClient
 @SpringBootTest
-class HeroesApiApplicationTests {
+class MangasApiApplicationTests {
 
 	@Autowired
 	WebTestClient webTestClient;
 
 	@Autowired
-	HeroesRepository heroesRepository;
+	MangasRepository heroesRepository;
 
 	@Test
 	void getOneHeroesById(){
 
 		webTestClient.get()
-				.uri(HeroesConstants.HEROES_ENDPOINT.concat("/{id}"),"1")
+				.uri(MangasConstants.MANGAS_ENDPOINT.concat("/{id}"),"1")
 				.exchange()
 				.expectStatus().isOk()
 				.expectBody();
@@ -40,7 +38,7 @@ class HeroesApiApplicationTests {
 	void getOneHeroeNotFound(){
 
 		webTestClient.get()
-				.uri(HeroesConstants.HEROES_ENDPOINT.concat("/{id}"),"9999")
+				.uri(MangasConstants.MANGAS_ENDPOINT.concat("/{id}"),"9999")
 				.exchange()
 				.expectStatus().isNotFound();
 
@@ -50,7 +48,7 @@ class HeroesApiApplicationTests {
 	void deleteExistingHero(){
 
 		webTestClient.get()
-				.uri(HeroesConstants.HEROES_ENDPOINT.concat("/{id}"),"1")
+				.uri(MangasConstants.MANGAS_ENDPOINT.concat("/{id}"),"1")
 				.exchange()
 				.expectStatus().isOk();
 
@@ -60,7 +58,7 @@ class HeroesApiApplicationTests {
 	void deleteNotExistingHero(){
 
 		webTestClient.get()
-				.uri(HeroesConstants.HEROES_ENDPOINT.concat("/{id}"),"9999")
+				.uri(MangasConstants.MANGAS_ENDPOINT.concat("/{id}"),"9999")
 				.exchange()
 				.expectStatus().isNotFound()
 				.expectBody(Void.class);
