@@ -1,4 +1,4 @@
-package com.lambdasys.heroes.api.config;
+package com.lambdasys.mangas.api.config;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
