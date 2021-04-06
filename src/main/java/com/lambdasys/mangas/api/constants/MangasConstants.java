@@ -1,4 +1,4 @@
-package com.lambdasys.heroes.api.constants;
+package com.lambdasys.mangas.api.constants;
 
 public class MangasConstants {
 
