@@ -1,8 +1,8 @@
-package com.lambdasys.heroes.api.controller;
+package com.lambdasys.mangas.api.controller;
 
-import com.lambdasys.heroes.api.constants.HeroesConstants;
-import com.lambdasys.heroes.api.document.Heroes;
-import com.lambdasys.heroes.api.service.HeroesService;
+import com.lambdasys.mangas.api.constants.MangasConstants;
+import com.lambdasys.mangas.api.document.Mangas;
+import com.lambdasys.mangas.api.service.MangasService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,24 +13,24 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestController
-@RequestMapping(value = HeroesConstants.HEROES_ENDPOINT)
-public class HeroesController {
+@RequestMapping(value = MangasConstants.MANGAS_ENDPOINT)
+public class MangasController {
 
-    private HeroesService service;
+    private MangasService service;
 
-    public HeroesController(@Autowired final HeroesService service){
+    public MangasController(@Autowired final MangasService service){
         this.service = service;
     }
 
     @GetMapping
-    public Flux<Heroes> findAll(){
-        log.info("request a list off all heroes");
+    public Flux<Mangas> findAll(){
+        log.info("request a list off all mangas");
         return this.service.findAll();
     }
 
     @GetMapping("/{id}")
-    public Mono<ResponseEntity<Heroes>> findById(@PathVariable String id){
-        log.info("request a hero with id: {}",id);
+    public Mono<ResponseEntity<Mangas>> findById(@PathVariable String id){
+        log.info("request a manga with id: {}",id);
         return this.service.findById(id)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -38,15 +38,15 @@ public class HeroesController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<Heroes> save(@RequestBody Heroes heroes){
-        log.info("post a hero with content {}",heroes);
-        return this.service.save(heroes);
+    public Mono<Mangas> save(@RequestBody Mangas mangas){
+        log.info("post a manga with content {}", mangas);
+        return this.service.save(mangas);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Mono<HttpStatus> deleteById(@PathVariable final String id){
-        log.info("delete a hero with id {}",id);
+        log.info("delete a manga with id {}",id);
         this.service.deleteById(id);
         return Mono.just(HttpStatus.NO_CONTENT);
     }
