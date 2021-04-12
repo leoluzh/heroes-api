@@ -28,7 +28,7 @@ public class MangasData {
 
         Table table = dynamoDB.getTable(MangasConstants.MANGAS_TABLE_NAME);
 
-        var manga1 = new Item()
+        Item manga1 = new Item()
                 .withPrimaryKey("id",1)
                 .withString("name","Vagabond")
                 .withString("description","Manga Vagabond")
@@ -41,7 +41,7 @@ public class MangasData {
 
         PutItemOutcome outcome1 = table.putItem(manga1);
 
-        var manga2 = new Item()
+        Item manga2 = new Item()
                 .withPrimaryKey("id",2)
                 .withString("name","Lobo Solitário")
                 .withString("description","Manga Lobo Solitário")
@@ -54,7 +54,7 @@ public class MangasData {
 
         PutItemOutcome outcome2 = table.putItem(manga2);
 
-        var manga3 = new Item()
+        Item manga3 = new Item()
                 .withPrimaryKey("id",3)
                 .withString("name","My Hero Academia")
                 .withString("description","Manga My Hero Academia")
@@ -68,7 +68,7 @@ public class MangasData {
         PutItemOutcome outcome3 = table.putItem(manga3);
 
 
-        var manga4 = new Item()
+        Item manga4 = new Item()
                 .withPrimaryKey("id",4)
                 .withString("name","Jojos Bizarre Adventure")
                 .withString("description","Manga Jojos Bizarre Adventure")
