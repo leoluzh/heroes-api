@@ -2,6 +2,7 @@ package com.lambdasys.mangas.api.controller;
 
 import com.lambdasys.mangas.api.constants.MangasConstants;
 import com.lambdasys.mangas.api.document.Mangas;
+import com.lambdasys.mangas.api.repository.MangasRepository;
 import com.lambdasys.mangas.api.service.MangasService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,12 @@ import reactor.core.publisher.Mono;
 @RequestMapping(value = MangasConstants.MANGAS_ENDPOINT)
 public class MangasController {
 
-    private MangasService service;
+    private final MangasService service;
+    private final MangasRepository repository;
 
-    public MangasController(@Autowired final MangasService service){
+    public MangasController(final MangasService service, final MangasRepository repository){
         this.service = service;
+        this.repository = repository;
     }
 
     @GetMapping
