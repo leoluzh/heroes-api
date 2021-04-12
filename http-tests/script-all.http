@@ -1,0 +1,25 @@
+# an example of creating of an movie
+POST http://{{host}}:{{port}}/api/v1/mangas
+Content-Type: application/json
+Content-Encoding: UTF-8
+
+{
+  "id": {{key}},
+  "name": "Vagabond",
+  "description": "Vagabond",
+  "year": 1987,
+  "genre": "ACTION",
+  "volumes": 10
+}
+
+###
+# a basic request list
+GET http://{{host}}:{{port}}/api/v1/mangas
+
+###
+#a basic request - fetch by key
+GET http://{{host}}:{{port}}/api/v1/mangas/{{key}}
+
+###
+# an example of deleting an manga
+DELETE http://{{host}}:{{port}}/api/v1/manga/{{key}}
