@@ -12,11 +12,11 @@
 	<artifactId>mangas-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mangas-api</name>
-	<description>API para gerenciamente de Mangas</description>
+	<description>API para gerenciamento de Mangas</description>
 	<properties>
-		<java.version>11</java.version>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 		<org.springdoc.version>1.5.2</org.springdoc.version>
 	</properties>
