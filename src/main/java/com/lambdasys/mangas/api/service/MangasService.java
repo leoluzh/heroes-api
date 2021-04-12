@@ -1,5 +1,6 @@
 package com.lambdasys.mangas.api.service;
 
+import com.lambdasys.mangas.api.MangasMapper;
 import com.lambdasys.mangas.api.document.Mangas;
 import com.lambdasys.mangas.api.repository.MangasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,9 @@ import reactor.core.publisher.Mono;
 public class MangasService {
 
    private final MangasRepository repository;
+   private final MangasMapper mangasMapper = MangasMapper.INSTANCE;
 
-   public MangasService(@Autowired final MangasRepository repository){
+   public MangasService(final MangasRepository repository){
        this.repository = repository;
    }
 
